@@ -170,7 +170,7 @@ CELERY_RESULT_BACKEND = os.environ.get('CELERY_BROKER', 'redis://redis:6379/0')
 CELERY_BEAT_SCHEDULE = {
     'pay_my_money': {
         'task': 'My_task.tasks.pay_beat_salary',
-        'schedule': 5,
+        'schedule': 2*60*60,
     },
 }
 
