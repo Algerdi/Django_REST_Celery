@@ -49,6 +49,26 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 admin.site.register(Employee, EmployeeAdmin)
 
+# Совсем забыл добавить в финальную версию именно ссылку на босса, тогда все будет выглядеть именно как снизу 
+#(к сожалению, не имею сейчас доступа к своему компьютеру, поэтому пока только в виде комента). Так же можно сделать через try except
+# class EmployeeAdmin(admin.ModelAdmin):
+#     list_display = ('fio', 'pos_name', 'salary_amount', 'all_salary', 'pos_level', 'boss', 'pos_parent', 'user')
+#     list_display_links = ('fio', 'pos_name',)
+#     search_fields = ('fio', 'pos__name',)
+#     list_filter = ('pos__name', 'pos__level',)
+#     readonly_fields = ('all_salary', 'pos_parent',)
+#     actions = [make_zero]
+
+#     def boss(self, obj):
+#         dol = obj.pos.get_ancestors(ascending=True, include_self=False)
+#         if len(dol) == 0:
+#             return 'Сам себе голова'
+#         else:
+#             nach = Employee.objects.filter(pos=dol.first()).first()
+#             return format_html("<a href='http://127.0.0.1:8000/admin/My_task/employee/{url}/change/'>{name}</a>", url=nach.emp_id, name=nach.fio)
+
+# admin.site.register(Employee, EmployeeAdmin)
+
 # _____________________________________________________________________________________________________________________
 
 # Изменения названия тайтла и хедера
