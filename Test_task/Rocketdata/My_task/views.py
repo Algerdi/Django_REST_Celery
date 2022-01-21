@@ -24,7 +24,7 @@ class EmployeeCreateView(generics.CreateAPIView):
                 return Response(f'Вы не staff и у вас же есть созданный вами сотрудник - {emp.first().fio}')
 
 
-# Просмотр всех сотрудников для стаффа и только себя для обычного смертного
+# Просмотр всех сотрудников для стаффа и только себя
 class EmployeeListView(generics.ListAPIView):
     serializer_class = EmployeeListSerializer
     queryset = Employee.objects.all()
